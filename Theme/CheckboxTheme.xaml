@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type CheckBox}"
+           x:Key="CheckboxTheme">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Border CornerRadius="3"
+                            Background="#003031"
+                            Width="{TemplateBinding Width}"
+                            Height="30"
+                            Padding="0 5"
+                            Name="border">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle StrokeThickness="1"/>
+                            <CheckBox VerticalAlignment="Center" 
+                                      Grid.Column="0"
+                                      Margin="5 0"
+                                      Name="checkbox"
+                                      IsHitTestVisible="False"/>
+
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="{TemplateBinding Content}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="10,0,0,0"
+                                       FontSize="14"
+                                       Foreground="DarkGray"
+                                       Grid.Column="1"
+                                       Name="Background">
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="#005557"/>
+                            <Setter Property="IsChecked" TargetName="checkbox" Value="True"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+</ResourceDictionary>

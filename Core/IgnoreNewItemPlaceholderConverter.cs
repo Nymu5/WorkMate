@@ -1,0 +1,22 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Data;
+
+namespace WorkMate.MVVM.Model
+{
+    public class IgnoreNewItemPlaceholderConverter : IValueConverter
+    {
+        private const string newItemPlaceholderName = "{NewItemPlaceholder}";
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value != null && value.ToString() == newItemPlaceholderName)
+                value = DependencyProperty.UnsetValue;
+            return value;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+﻿<Application x:Class="WorkMate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WorkMate"
+             xmlns:viewModel="clr-namespace:WorkMate.MVVM.ViewModel"
+             xmlns:view="clr-namespace:WorkMate.MVVM.View">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextboxTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextboxTheme-Empty.xaml" />
+                <ResourceDictionary Source="Theme/ButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/CheckboxTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextboxTheme-Empty-White.xaml" />
+                <ResourceDictionary Source="Theme/LoginButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/ComboBoxStyleLogin.xaml" />
+                <ResourceDictionary Source="Theme/DatagridTheme.xaml" />
+                <ResourceDictionary Source="Theme/HeaderBarButtonTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:DashboardViewModel}">
+                <view:DashboardView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ClientViewModel}">
+                <view:ClientView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:JobsViewModel}">
+                <view:JobsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:TimesViewModel}">
+                <view:TimesView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,16 @@
+{
+  "id": _id,
+  "name": _name,
+  "description": _description,
+  "dueDate": {
+	  "year": _dueDate.Year,
+	  "month": _dueDate.Month,
+	  "day": _dueDate.Day,
+  },
+  "completionDate": {
+	  "year": _completionDate.Year,
+	  "month": _completionDate.Month,
+	  "day": _completionDate.Day,
+  }
+  
+  

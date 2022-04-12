@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMate", "WorkMate.csproj", "{4729C92D-FA47-4109-98A1-4E442D46E0EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4729C92D-FA47-4109-98A1-4E442D46E0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4729C92D-FA47-4109-98A1-4E442D46E0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4729C92D-FA47-4109-98A1-4E442D46E0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4729C92D-FA47-4109-98A1-4E442D46E0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {538F8218-F02D-491A-9744-DB22309DF54C}
+	EndGlobalSection
+EndGlobal
