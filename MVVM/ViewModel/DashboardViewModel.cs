@@ -73,6 +73,7 @@ namespace WorkMate.MVVM.ViewModel
                 else
                 {
                     LoginEnabled = false;
+                    PasswordVisibility = Visibility.Visible;
                     ConfirmPasswordVisibility = Visibility.Visible;
                     SignupEnabled = CheckPasswordMatch();
                 }
