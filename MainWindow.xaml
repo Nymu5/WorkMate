@@ -199,7 +199,7 @@
                                                           Visibility="{Binding NavVisibility}" />
                     </Grid>
 
-                    <Grid Height="465">
+                    <Grid Height="470">
                         <StackPanel VerticalAlignment="Bottom">
                             <TextBlock Text="{Binding User.LastSaveStr}" 
                                        Margin="0 0 0 10"
