@@ -195,7 +195,8 @@
                                           Width="455"
                                           Margin="1 20 1 0"
                                           BorderThickness="0"
-                                          GridLinesVisibility="All">
+                                          GridLinesVisibility="All"
+                                          Background="Transparent">
                                     <DataGrid.CellStyle>
                                         <Style TargetType="{x:Type DataGridCell}">
                                             <Setter Property="Height"
@@ -226,7 +227,9 @@
                                             <Setter Property="VerticalAlignment"
                                                     Value="Center" />
                                             <Setter Property="Foreground"
-                                                    Value="Black" />
+                                                    Value="White" />
+                                            <Setter Property="Background"
+                                                    Value="#4c4c4c" />
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected"
                                                          Value="True">
@@ -234,6 +237,8 @@
                                                             Value="#f2c148" />
                                                     <Setter Property="FontWeight"
                                                             Value="SemiBold" />
+                                                    <Setter Property="Foreground"
+                                                            Value="Black" />
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -316,7 +321,8 @@
                                           Height="220"
                                           CanUserSortColumns="False"
                                           BorderThickness="0"
-                                          GridLinesVisibility="Horizontal">
+                                          GridLinesVisibility="Horizontal"
+                                          Background="Transparent">
                                     <DataGrid.CellStyle>
                                         <Style TargetType="{x:Type DataGridCell}">
                                             <Setter Property="Height"
@@ -331,6 +337,8 @@
                                                     Value="0" />
                                             <Setter Property="FontSize"
                                                     Value="12" />
+                                            <Setter Property="Foreground"
+                                                    Value="White" />
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -346,8 +354,10 @@
                                             </Setter>
                                             <Setter Property="VerticalAlignment"
                                                     Value="Center" />
+                                            <Setter Property="Background"
+                                                    Value="#4c4c4c" />
                                             <Setter Property="Foreground"
-                                                    Value="Black" />
+                                                    Value="White" />
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected"
                                                          Value="True">
@@ -355,6 +365,8 @@
                                                             Value="#f2c148" />
                                                     <Setter Property="FontWeight"
                                                             Value="SemiBold" />
+                                                    <Setter Property="Foreground"
+                                                            Value="Black" />
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -477,7 +489,8 @@
                               HeadersVisibility="Column"
                               CanUserSortColumns="False"
                               BorderThickness="0"
-                              GridLinesVisibility="Horizontal">
+                              GridLinesVisibility="Horizontal"
+                              Background="Transparent">
                         <DataGrid.CellStyle>
                             <Style TargetType="{x:Type DataGridCell}">
                                 <Setter Property="Height"
@@ -508,7 +521,9 @@
                                 <Setter Property="VerticalAlignment"
                                         Value="Center" />
                                 <Setter Property="Foreground"
-                                        Value="Black" />
+                                        Value="White" />
+                                <Setter Property="Background"
+                                        Value="#4c4c4c" />
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected"
                                              Value="True">
@@ -516,6 +531,8 @@
                                                 Value="#f2c148" />
                                         <Setter Property="FontWeight"
                                                 Value="SemiBold" />
+                                        <Setter Property="Foreground"
+                                                Value="Black" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>

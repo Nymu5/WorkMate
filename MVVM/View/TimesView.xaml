@@ -453,7 +453,8 @@
                               Grid.Row="1"
                               Margin="36 10 36 0"
                               BorderThickness="0"
-                              GridLinesVisibility="Horizontal">
+                              GridLinesVisibility="Horizontal"
+                              Background="Transparent">
                         <DataGrid.CellStyle>
                             <Style TargetType="{x:Type DataGridCell}">
                                 <Setter Property="Height"
@@ -484,12 +485,16 @@
                                 <Setter Property="VerticalAlignment"
                                         Value="Center" />
                                 <Setter Property="Foreground"
-                                        Value="Black" />
+                                        Value="White" />
+                                <Setter Property="Background"
+                                        Value="#4c4c4c" />
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected"
                                              Value="True">
                                         <Setter Property="Background"
                                                 Value="#f2c148" />
+                                        <Setter Property="Foreground"
+                                                Value="Black" />
                                         <Setter Property="FontWeight"
                                                 Value="SemiBold" />
                                     </Trigger>

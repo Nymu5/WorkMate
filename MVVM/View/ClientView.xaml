@@ -108,7 +108,7 @@
                                            FontSize="28"
                                            Margin="20,10,0,0" />
                                 <TextBlock Text="{Binding ElementName=ClientGrid,Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"
-                                           Foreground="Wheat"
+                                           Foreground="#f2c148"
                                            FontSize="14"
                                            Margin="0,0,0,0"
                                            MaxWidth="360" />
@@ -182,7 +182,8 @@
                                           CanUserSortColumns="False"
                                           GridLinesVisibility="Horizontal"
                                           BorderThickness="0"
-                                          VerticalScrollBarVisibility="Hidden">
+                                          VerticalScrollBarVisibility="Hidden"
+                                          Background="Transparent">
                                     <DataGrid.CellStyle>
                                         <Style TargetType="{x:Type DataGridCell}">
                                             <Setter Property="Height"
@@ -197,6 +198,12 @@
                                                     Value="0" />
                                             <Setter Property="FontSize"
                                                     Value="12" />
+                                            <Setter Property="Foreground"
+                                                    Value="White" />
+                                            <Setter Property="Background"
+                                                    Value="#4c4c4c" />
+                                            <Setter Property="BorderBrush"
+                                                    Value="White" />
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -212,8 +219,7 @@
                                             </Setter>
                                             <Setter Property="VerticalAlignment"
                                                     Value="Center" />
-                                            <Setter Property="Foreground"
-                                                    Value="Black" />
+                                            
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected"
                                                          Value="True">
@@ -221,6 +227,8 @@
                                                             Value="#f2c148" />
                                                     <Setter Property="FontWeight"
                                                             Value="SemiBold" />
+                                                    <Setter Property="Foreground"
+                                                            Value="Black" />
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
@@ -338,6 +346,10 @@
                                                 Value="0" />
                                         <Setter Property="FontSize"
                                                 Value="13" />
+                                        <Setter Property="Background"
+                                                Value="#4c4c4c" />
+                                        <Setter Property="Foreground"
+                                                Value="White" />
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -353,8 +365,6 @@
                                         </Setter>
                                         <Setter Property="VerticalAlignment"
                                                 Value="Center" />
-                                        <Setter Property="Foreground"
-                                                Value="Black" />
                                         <Style.Triggers>
                                             <Trigger Property="IsSelected"
                                                      Value="True">
@@ -362,6 +372,8 @@
                                                         Value="#f2c148" />
                                                 <Setter Property="FontWeight"
                                                         Value="SemiBold" />
+                                                <Setter Property="Foreground"
+                                                        Value="Black" />
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>

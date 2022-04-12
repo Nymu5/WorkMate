@@ -37,8 +37,13 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#005557"/>
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="#f2c148"/>
                             <Setter Property="IsChecked" TargetName="checkbox" Value="True"/>
+                            <Setter Property="Foreground"
+                                    TargetName="Background"
+                                    Value="Black" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
