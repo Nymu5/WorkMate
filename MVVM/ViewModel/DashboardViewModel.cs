@@ -80,7 +80,7 @@ namespace WorkMate.MVVM.ViewModel
         }
         private bool CheckPasswordMatch()
         {
-            if (_password.Equals(_confirmPassword))
+            if (_password.Equals(_confirmPassword) && !_usernames.Contains(_username))
             {
                 return true;
             }

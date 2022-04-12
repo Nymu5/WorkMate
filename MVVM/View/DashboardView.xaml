@@ -96,7 +96,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <iconPacks:PackIconMaterial Kind="AccountOutline"
+                        <iconPacks:PackIconBootstrapIcons Kind="Person"
                                                     Foreground="White"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Right"
@@ -137,7 +137,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <iconPacks:PackIconUnicons Kind="Lock"
+                        <iconPacks:PackIconBootstrapIcons Kind="ShieldLock"
                                                    Foreground="White"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Right"
@@ -177,7 +177,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <iconPacks:PackIconUnicons Kind="Lock"
+                        <iconPacks:PackIconBootstrapIcons Kind="ShieldLockFill"
                                                    Foreground="White"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Right"
