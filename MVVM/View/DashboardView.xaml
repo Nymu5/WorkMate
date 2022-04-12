@@ -51,7 +51,8 @@
                            HorizontalAlignment="Center"
                            Margin="0 10 0 0" />
             </StackPanel>
-            <StackPanel Grid.Row="1" FocusManager.FocusedElement="{Binding ElementName=username}">
+            <StackPanel Grid.Row="1"
+                        FocusManager.FocusedElement="{Binding ElementName=username}">
                 <StackPanel Grid.Row="1">
                     <Grid Width="250">
                         <ComboBox Style="{DynamicResource ComboBoxStyleLogin}"
@@ -71,7 +72,30 @@
                                   Opacity="1"
                                   Padding="3 0 25 0"
                                   IsTextSearchEnabled="True"
-                                  Name="username"/>
+                                  Name="username" />
+                        <TextBlock IsHitTestVisible="False"
+                                   Text="Profilname"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="6 0 0 0"
+                                   FontFamily="helvetica"
+                                   FontWeight="Light"
+                                   FontSize="20"
+                                   Foreground="#444444">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility"
+                                            Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Username}"
+                                                     Value="">
+                                            <Setter Property="Visibility"
+                                                    Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <iconPacks:PackIconMaterial Kind="AccountOutline"
                                                     Foreground="White"
                                                     VerticalAlignment="Center"
@@ -84,11 +108,75 @@
                             Opacity="1" />
                 </StackPanel>
 
-                <StackPanel Margin="0 20 0 0">
+                <StackPanel Margin="0 20 0 0"
+                            Visibility="{Binding PasswordVisibility}">
                     <Grid Width="250">
-                        <components:BindablePasswordBox Password="{Binding Password}"
+                        <components:BindablePasswordBox Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
                                                         Width="250"
-                                                        HorizontalAlignment="Center"/>
+                                                        HorizontalAlignment="Center" />
+                        <TextBlock IsHitTestVisible="False"
+                                   Text="Passwort"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="6 0 0 0"
+                                   FontFamily="helvetica"
+                                   FontWeight="Light"
+                                   FontSize="20"
+                                   Foreground="#444444">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility"
+                                            Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Password}"
+                                                     Value="">
+                                            <Setter Property="Visibility"
+                                                    Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <iconPacks:PackIconUnicons Kind="Lock"
+                                                   Foreground="White"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Right"
+                                                   Margin="0 0 15 0" />
+                    </Grid>
+                    <Border Width="250"
+                            Height="2"
+                            Background="White"
+                            Opacity="1" />
+                </StackPanel>
+                <StackPanel Margin="0 20 0 0"
+                            Visibility="{Binding ConfirmPasswordVisibility}">
+                    <Grid Width="250">
+                        <components:BindablePasswordBox Password="{Binding ConfirmPassword}"
+                                                        Width="250"
+                                                        HorizontalAlignment="Center" />
+                        <TextBlock IsHitTestVisible="False"
+                                   Text="Passwort bestätigen"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="6 0 0 0"
+                                   FontFamily="helvetica"
+                                   FontWeight="Light"
+                                   FontSize="20"
+                                   Foreground="#444444">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility"
+                                            Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ConfirmPassword}"
+                                                     Value="">
+                                            <Setter Property="Visibility"
+                                                    Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <iconPacks:PackIconUnicons Kind="Lock"
                                                    Foreground="White"
                                                    VerticalAlignment="Center"
@@ -107,12 +195,14 @@
                             Height="40"
                             Content="Profil Login"
                             Margin="10"
-                            Command="{Binding LoginProfile}" />
+                            Command="{Binding LoginProfile}"
+                            IsEnabled="{Binding LoginEnabled}" />
                     <Button Width="200"
                             Height="40"
                             Content="Profil erstellen"
                             Margin="10"
-                            Command="{Binding CreateProfile}" />
+                            Command="{Binding CreateProfile}"
+                            IsEnabled="{Binding SignupEnabled}" />
                 </StackPanel>
             </StackPanel>
         </Grid>

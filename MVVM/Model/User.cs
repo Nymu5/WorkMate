@@ -20,6 +20,13 @@ namespace WorkMate.MVVM.Model
             get { return "Zuletzt gespeichert: " + _lastSave.ToShortTimeString(); }
         }
 
+        private List<string> _userFolders;
+        public List<string> UserFolders
+        {
+                get { return _userFolders; }
+                set { _userFolders = value; }
+        }
+
         private bool _loggedIn = false;
         public bool LoggedIn
         {
@@ -161,6 +168,9 @@ namespace WorkMate.MVVM.Model
                 Path = "data/" + _name;
                 FileOperations.RemoveDir(Path, true);
                 FileOperations.CreateDir(Path);
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                data["encrypted"] = "check";
+                FileOperations.CreateFile(data, Path+"/");
                 _clients.DataSave(this);
                 _jobs.DataSave(this);
                 LastSave = DateTime.Now;

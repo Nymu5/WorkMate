@@ -16,11 +16,78 @@ namespace WorkMate.MVVM.ViewModel
         public ICommand CreateProfile { get; }
         public ICommand LoginProfile { get; }
         private User _user;
-        private string _username;
+        private string _username = "";
+        private Visibility _confirmPasswordVisibility = Visibility.Visible;
+        public Visibility ConfirmPasswordVisibility
+        {
+            get { return _confirmPasswordVisibility; }
+            set { _confirmPasswordVisibility = value; OnPropertyChanged(nameof(ConfirmPasswordVisibility)); }
+        }
+
+        private Visibility _passwordVisibility = Visibility.Visible;
+        public Visibility PasswordVisibility
+        {
+            get { return _passwordVisibility; }
+            set { _passwordVisibility = value; OnPropertyChanged(nameof(PasswordVisibility)); }
+        }
+
+
+        private bool _loginEnabled = false;
+        public bool LoginEnabled
+        {
+            get { return _loginEnabled; }
+            set { _loginEnabled = value; OnPropertyChanged(nameof(LoginEnabled)); }
+        }
+
+        private bool _signupEnabled = false;
+        public bool SignupEnabled
+        {
+            get { return _signupEnabled; }
+            set { _signupEnabled = value; OnPropertyChanged(nameof(SignupEnabled)); }
+        }
         public string Username
         {
             get { return _username; }
-            set { _username = value; OnPropertyChanged(nameof(Username)); }
+            set { 
+                _username = value; 
+                OnPropertyChanged(nameof(Username));
+                if (string.IsNullOrWhiteSpace(_username))
+                {
+                    LoginEnabled = false;
+                    SignupEnabled = false;
+                }
+                else if (_usernames.Contains(_username))
+                {
+                    LoginEnabled = true;
+                    SignupEnabled = false;
+                    ConfirmPasswordVisibility = Visibility.Hidden;
+                    if (FileOperations.EncryptionCheck(_username))
+                    {
+                        PasswordVisibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        PasswordVisibility = Visibility.Hidden;
+                    }
+                }
+                else
+                {
+                    LoginEnabled = false;
+                    ConfirmPasswordVisibility = Visibility.Visible;
+                    SignupEnabled = CheckPasswordMatch();
+                }
+            }
+        }
+        private bool CheckPasswordMatch()
+        {
+            if (_password.Equals(_confirmPassword))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private List<string> _usernames;
@@ -31,11 +98,26 @@ namespace WorkMate.MVVM.ViewModel
         }
 
 
-        private string _password;
+        private string _password = "";
         public string Password
         {
             get { return _password; }
-            set { _password = value; }
+            set { 
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+                SignupEnabled = CheckPasswordMatch();
+            }
+        }
+
+        private string _confirmPassword = "";
+        public string ConfirmPassword
+        {
+            get { return _confirmPassword; }
+            set { 
+                _confirmPassword = value;
+                OnPropertyChanged(nameof(ConfirmPassword));
+                SignupEnabled = CheckPasswordMatch();
+            }
         }
 
         private MainViewModel _mainViewModel;
@@ -45,6 +127,7 @@ namespace WorkMate.MVVM.ViewModel
         {
             get { return _loginVisibility; }
         }
+
 
         private ObservableCollection<Profile> _profiles;
         public ObservableCollection<Profile> Profiles
