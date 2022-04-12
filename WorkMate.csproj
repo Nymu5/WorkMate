@@ -97,6 +97,7 @@
     </ApplicationDefinition>
     <Compile Include="Core\FileOperations.cs" />
     <Compile Include="Core\StringCypher.cs" />
+    <Compile Include="MVVM\Commands\ChangeProfile.cs" />
     <Compile Include="MVVM\Commands\ResetDate.cs" />
     <Compile Include="MVVM\Commands\Minimize.cs" />
     <Compile Include="MVVM\Commands\LoginProfile.cs" />

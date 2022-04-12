@@ -53,6 +53,7 @@ namespace WorkMate.MVVM.ViewModel
         public ICommand SaveToFile { get; }
         public ICommand Close { get; }
         public ICommand Minimize { get; }
+        public ICommand ChangeProfile { get; }
 
         public MainViewModel(User user)
         {
@@ -65,6 +66,7 @@ namespace WorkMate.MVVM.ViewModel
             ClientVM = new ClientViewModel(user);
             JobsVM = new JobsViewModel(user);
             TimesVM = new TimesViewModel(user);
+            ChangeProfile = new ChangeProfile(user);
             CurrentView = DashboardVM;
 
             DashboardViewCommand = new RelayCommand(o =>
@@ -93,6 +95,13 @@ namespace WorkMate.MVVM.ViewModel
             _navVisibility = Visibility.Visible;
             OnPropertyChanged(nameof(NavVisibility));
             CurrentView = ClientVM;
+        }
+
+        public void DisableNavigation()
+        {
+            _navVisibility = Visibility.Hidden;
+            OnPropertyChanged(nameof(NavVisibility));
+            CurrentView = DashboardVM;
         }
     }
 }
