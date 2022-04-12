@@ -21,7 +21,6 @@ namespace WorkMate
     /// </summary>
     public partial class MainWindow : Window
     {
-        private System.Threading.Timer timer; 
         public MainWindow()
         {
             InitializeComponent();
