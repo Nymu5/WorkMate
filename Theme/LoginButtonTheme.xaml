@@ -37,6 +37,11 @@
                 <Setter Property="Foreground"
                         Value="DeepSkyBlue" />
             </Trigger>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="Opacity"
+                        Value="0.2" />
+            </Trigger>
         </Style.Triggers>
     </Style>
 </ResourceDictionary>

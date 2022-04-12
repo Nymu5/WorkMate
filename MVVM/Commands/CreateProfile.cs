@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Forms;
 using WorkMate.MVVM.Model;
 using WorkMate.MVVM.ViewModel;
 
@@ -24,7 +25,10 @@ namespace WorkMate.MVVM.Commands
 
         public override void Execute(object parameter)
         {
-            _dashboardViewModel.CreateUserProfile(_dashboardViewModel.Username, _dashboardViewModel.Password);
+            if (_dashboardViewModel.Password.Equals(_dashboardViewModel.ConfirmPassword))
+            {
+                _dashboardViewModel.CreateUserProfile(_dashboardViewModel.Username, _dashboardViewModel.Password);
+            }
         }
 
         private void OnViewModelIPropertyChanged(object sender, PropertyChangedEventArgs e)

@@ -21,6 +21,7 @@ namespace WorkMate
         protected override void OnStartup(StartupEventArgs e)
         {
             FileOperations.CreateDir("data");
+            _user.UserFolders = FileOperations.GetDirs("data/", true);
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_user)

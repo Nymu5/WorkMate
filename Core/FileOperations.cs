@@ -81,5 +81,18 @@ namespace WorkMate.Core
             Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(datadict);
             return data;
         }
+        public static bool EncryptionCheck(string username)
+        {
+            try
+            {
+                string dataread = File.ReadAllText("data/" + username + "/default.json");
+                Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(dataread);
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
+        }
     }
 }
