@@ -232,19 +232,12 @@
     </ApplicationDefinition>
     <Compile Include="Core\FileOperations.cs" />
     <Compile Include="Core\StringCypher.cs" />
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MVVM\Commands\ResetDate.cs" />
     <Compile Include="MVVM\Commands\Minimize.cs" />
     <Compile Include="MVVM\Commands\LoginProfile.cs" />
     <Compile Include="MVVM\Commands\Close.cs" />
     <Compile Include="MVVM\Commands\SelectProfile.cs" />
     <Compile Include="MVVM\Commands\AddStatusCommand.cs" />
-    <Page Include="LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
