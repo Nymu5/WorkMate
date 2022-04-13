@@ -57,13 +57,16 @@ namespace WorkMate.MVVM.Model
             }
             return null;
         }
-        public void Add(string name)
+        public Client Add(string name)
         {
             if (this.FindByName(name) == null)
             {
-                _clientsList.Add(new Client(this.NextID(), name));
+                Client client = new Client(this.NextID(), name);
+                _clientsList.Add(client);
                 _nextId++;
+                return client;
             }
+            return null;
         }
         public void Add(int id, string name)
         {

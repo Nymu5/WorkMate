@@ -31,10 +31,12 @@ namespace WorkMate.MVVM.Model
             }
             return _nextJobId;
         }
-        public void Add(Client client, string name, string description, DateTime due)
+        public Job Add(Client client, string name, string description, DateTime due)
         {
-            _jobsList.Add(new Job(client, _nextJobId, name, description, due));
+            Job job = new Job(client, _nextJobId, name, description, due);
+            _jobsList.Add(job);
             NextID();
+            return job;
         }
         public void Add(Client client, int id, string name, string description, DateTime duedate, DateTime completiondate, bool completed, List<Status> statuslist, List<Time> timelist)
         {

@@ -97,6 +97,7 @@
     </ApplicationDefinition>
     <Compile Include="Core\FileOperations.cs" />
     <Compile Include="Core\StringCypher.cs" />
+    <Compile Include="MVVM\Commands\RefreshStatusCommand.cs" />
     <Compile Include="MVVM\Commands\ChangeProfile.cs" />
     <Compile Include="MVVM\Commands\ResetDate.cs" />
     <Compile Include="MVVM\Commands\Minimize.cs" />
@@ -158,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\TimesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\DatePickerTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Forms;
+using System.Linq;
 using WorkMate.Core;
 
 namespace WorkMate.MVVM.Model
@@ -45,6 +46,21 @@ namespace WorkMate.MVVM.Model
             get { return _statusList; }
             set { _statusList = value; OnPropertyChanged(nameof(StatusList)); }
         }
+
+        public string LastStatus
+        {
+            get
+            {
+                List<Status> statusList = _statusList.OrderByDescending(o=>o.Date).ToList();
+                if (statusList.Count > 0)
+                {
+                    return statusList[0].Name;
+                }
+                return string.Empty;
+                
+            }
+        }
+
         private DateTime _completionDate;
         public DateTime CompletionDate
         {
@@ -125,9 +141,12 @@ namespace WorkMate.MVVM.Model
             }
         }
 
-        public void AddStatus(DateTime date, string name, string description)
+        public Status AddStatus(DateTime date, string name, string description)
         {
-            _statusList.Add(new Status(date, name, description));
+            Status status = new Status(date, name, description);
+            _statusList.Add(status);
+
+            return status;
         }
 
         public void AddEmptyTime()

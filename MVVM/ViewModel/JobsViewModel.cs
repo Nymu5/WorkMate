@@ -184,6 +184,7 @@ namespace WorkMate.MVVM.ViewModel
         public ICommand SetTimeCommand { get; }
         public ICommand DeleteTimeCommand { get; }
         public ICommand RefreshJobs { get; }
+        public ICommand RefreshStatusCommand { get; }
 
         private string _new_JobName;
         public string New_JobName
@@ -253,6 +254,7 @@ namespace WorkMate.MVVM.ViewModel
             SetTimeCommand = new SetTimeCommand(this, user);
             DeleteTimeCommand = new DeleteTimeCommand(this, user);
             RefreshJobs = new RefreshJobs(this, user);
+            RefreshStatusCommand = new RefreshStatusCommand(this, user);
             _jobsView.Filter += FilterJobs;
         }
     }

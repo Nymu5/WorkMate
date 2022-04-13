@@ -5,12 +5,12 @@ using WorkMate.MVVM.ViewModel;
 
 namespace WorkMate.MVVM.Commands
 {
-    internal class AddStatusCommand : CommandBase
+    internal class RefreshStatusCommand : CommandBase
     {
         private readonly JobsViewModel _jobsViewModel;
         private readonly User _user;
 
-        public AddStatusCommand(JobsViewModel jobsViewModel, User user)
+        public RefreshStatusCommand(JobsViewModel jobsViewModel, User user)
         {
             _jobsViewModel = jobsViewModel;
             _user = user;
@@ -25,11 +25,9 @@ namespace WorkMate.MVVM.Commands
 
         public override void Execute(object parameter)
         {
-            _jobsViewModel.SelectedStatus = null;
             _jobsViewModel.StatusView.SortDescriptions.Clear();
             _jobsViewModel.StatusView.SortDescriptions.Add(new SortDescription("Date", ListSortDirection.Descending));
             _jobsViewModel.StatusView.Refresh();
-            _jobsViewModel.SelectedStatus = _jobsViewModel.SelectedJob.AddStatus(DateTime.Now, "", "");
         }
 
         private void OnViewModelIPropertyChanged(object sender, PropertyChangedEventArgs e)

@@ -25,7 +25,7 @@ namespace WorkMate.MVVM.Commands
         public override void Execute(object parameter)
         {
             
-            _user.CreateClient(_clientViewModel.Name_NewClient);
+            _clientViewModel.SelectedClient = _user.CreateClient(_clientViewModel.Name_NewClient);
             _clientViewModel.ClientsView.SortDescriptions.Clear();
             _clientViewModel.ClientsView.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
             _clientViewModel.ClientsView.Refresh();

@@ -9,7 +9,8 @@
              mc:Ignorable="d"
              d:DesignHeight="705"
              d:DesignWidth="980"
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding RefreshJobs}" />
@@ -17,7 +18,7 @@
     </i:Interaction.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="560"/>
+            <ColumnDefinition Width="560" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -391,21 +392,59 @@
 
                                     </DataGrid.InputBindings>
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn  IsReadOnly="True"
-                                                             Width="80"
-                                                             Header="Datum"
-                                                             Binding="{Binding DateStr}" />
+                                        <DataGridTemplateColumn Header="Datum"
+                                                                Width="120">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding DateStr}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                            <DataGridTemplateColumn.CellEditingTemplate>
+                                                <DataTemplate>
+                                                    <DatePicker Margin="-2 -1 0 0"
+                                                                Padding="0 -5 0 0"
+                                                                BorderThickness="0"
+                                                                SelectedDate="{Binding Date}"
+                                                                Style="{StaticResource DatePickerCustom01}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellEditingTemplate>
+                                        </DataGridTemplateColumn>
                                         <DataGridTextColumn IsReadOnly="False"
                                                             Width="*"
                                                             Header="Status"
                                                             Binding="{Binding Name}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Button Style="{StaticResource ModernButton}"
-                                        Content="+"
-                                        Command="{Binding AddStatusCommand}"
-                                        Margin="0 5 0 0"
-                                        Height="24" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="350" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource ModernButton}"
+                                            Command="{Binding AddStatusCommand}"
+                                            Margin="2 5 2 0"
+                                            Height="24" />
+                                    <iconPacks:PackIconBootstrapIcons Kind="Plus"
+                                                                      HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"
+                                                                      Margin="0 5 0 0"
+                                                                      Foreground="White" Height="12"
+                                                                      IsHitTestVisible="False"/>
+                                    <Button Style="{StaticResource ModernButton}"
+                                            Command="{Binding RefreshStatusCommand}"
+                                            Margin="2 5 2 0"
+                                            Height="24"
+                                            Grid.Column="1"/>
+                                    <iconPacks:PackIconBootstrapIcons Kind="ArrowCounterclockwise"
+                                                                      HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"
+                                                                      Margin="0 5 0 0"
+                                                                      Foreground="White"
+                                                                      Height="12"
+                                                                      Grid.Column="1"
+                                                                      IsHitTestVisible="False"/>
+                                </Grid>
+
                             </StackPanel>
 
 
@@ -561,19 +600,24 @@
                             <DataGridCheckBoxColumn IsReadOnly="True"
                                                     Width="24"
                                                     Header=""
-                                                    Binding="{Binding Completed}" />
+                                                    Binding="{Binding Completed}"
+                                                    Visibility="Collapsed"/>
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="70"
                                                 Header="Fällig am"
                                                 Binding="{Binding DueDateString}" />
                             <DataGridTextColumn IsReadOnly="True"
-                                                Width="160"
+                                                Width="130"
                                                 Header="Mandant"
                                                 Binding="{Binding Client.Name}" />
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="*"
                                                 Header="Aufgabe"
                                                 Binding="{Binding Name}" />
+                            <DataGridTextColumn IsReadOnly="True"
+                                                Width="100"
+                                                Header="Status"
+                                                Binding="{Binding LastStatus}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

@@ -27,7 +27,7 @@ namespace WorkMate.MVVM.Commands
         {
             if (!string.IsNullOrWhiteSpace(_jobsViewModel.New_JobName) && _jobsViewModel.SelectedClient != null)
             {
-                _user.AddJob(_user.FindClientByID(_jobsViewModel.SelectedClient.Id), _jobsViewModel.New_JobName, _jobsViewModel.New_JobDescription, _jobsViewModel.New_JobDueDate);
+                _jobsViewModel.SelectedJob = _user.AddJob(_user.FindClientByID(_jobsViewModel.SelectedClient.Id), _jobsViewModel.New_JobName, _jobsViewModel.New_JobDescription, _jobsViewModel.New_JobDueDate);
                 _jobsViewModel.SelectedClient = null;
                 _jobsViewModel.New_JobDescription = String.Empty;
                 _jobsViewModel.New_JobName = String.Empty;

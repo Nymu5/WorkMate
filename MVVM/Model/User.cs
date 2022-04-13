@@ -98,9 +98,9 @@ namespace WorkMate.MVVM.Model
             return _clients.GetAllClients();
         }
 
-        public void CreateClient(string name)
+        public Client CreateClient(string name)
         {
-            _clients.Add(name);
+            return _clients.Add(name);
         }
         public void CreateClient(int id, string name)
         {
@@ -130,9 +130,9 @@ namespace WorkMate.MVVM.Model
         {
             _jobs.NextJobId = id;
         }
-        public void AddJob(Client client, string name, string description, DateTime due)
+        public Job AddJob(Client client, string name, string description, DateTime due)
         {
-            _jobs.Add(client, name, description, due);
+            return _jobs.Add(client, name, description, due);
         }
         public void AddJob(int client_id, int id, string name, string description, DateTime duedate, DateTime completiondate, bool completed, List<Status> statuslist, List<Time> timelist)
         {

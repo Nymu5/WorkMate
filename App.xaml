@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Theme/ComboBoxStyleLogin.xaml" />
                 <ResourceDictionary Source="Theme/DatagridTheme.xaml" />
                 <ResourceDictionary Source="Theme/HeaderBarButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/DatePickerTemplate.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:DashboardViewModel}">
                 <view:DashboardView />
