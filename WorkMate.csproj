@@ -256,9 +256,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources.de-DE.resx" />
     <None Include="WorkMate_TemporaryKey.pfx" />
     <Resource Include="Fonts\Poppins-Bold.ttf" />
     <Resource Include="Fonts\Poppins-Regular.ttf" />

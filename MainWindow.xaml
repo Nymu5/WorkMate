@@ -16,7 +16,8 @@
         MouseDown="Window_MouseDown"
         DataContext="{Binding MainViewModel}"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:resx="clr-namespace:WorkMate.Properties">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
             <i:InvokeCommandAction Command="{Binding SaveToFile}" />
@@ -56,7 +57,7 @@
                             HorizontalAlignment="Left"
                             Background="#f2c148"
                             Command="{Binding SaveToFile}"
-                            Visibility="{Binding NavVisibility}"/>
+                            Visibility="{Binding NavVisibility}" />
                     <iconPacks:PackIconBootstrapIcons Kind="Save"
                                                       Grid.Column="0"
                                                       Foreground="White"
@@ -65,7 +66,7 @@
                                                       Height="10"
                                                       Width="10"
                                                       IsHitTestVisible="False"
-                                                      Visibility="{Binding NavVisibility}"/>
+                                                      Visibility="{Binding NavVisibility}" />
                     <Button Style="{StaticResource HeaderBarButtonTheme}"
                             Grid.Column="2"
                             Width="40"
@@ -73,13 +74,13 @@
                             Background="DarkRed"
                             Command="{Binding Close}" />
                     <iconPacks:PackIconBootstrapIcons Kind="X"
-                                               Grid.Column="2"
-                                               Foreground="White"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               Height="7"
-                                               Width="7"
-                                               IsHitTestVisible="False" />
+                                                      Grid.Column="2"
+                                                      Foreground="White"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Height="7"
+                                                      Width="7"
+                                                      IsHitTestVisible="False" />
                     <Button Style="{StaticResource HeaderBarButtonTheme}"
                             Grid.Column="1"
                             Width="40"
@@ -87,13 +88,13 @@
                             Background="gray"
                             Command="{Binding Minimize}" />
                     <iconPacks:PackIconBootstrapIcons Kind="Dash"
-                                                Grid.Column="1"
-                                                Foreground="White"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Height="7"
-                                                Width="7"
-                                                IsHitTestVisible="False" />
+                                                      Grid.Column="1"
+                                                      Foreground="White"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"
+                                                      Height="7"
+                                                      Width="7"
+                                                      IsHitTestVisible="False" />
                 </Grid>
             </Grid>
             <Grid>
@@ -144,7 +145,7 @@
                             <RowDefinition Height="50" />
                             <RowDefinition Height="50" />
                         </Grid.RowDefinitions>
-                        <RadioButton Content="Mandanten"
+                        <RadioButton Content="{x:Static resx:Resources.clients_header}"
                                      Height="50"
                                      IsChecked="True"
                                      Foreground="White"
@@ -162,7 +163,7 @@
                                                           VerticalAlignment="Center"
                                                           Grid.Row="1"
                                                           Visibility="{Binding NavVisibility}" />
-                        <RadioButton Content="Aufgaben"
+                        <RadioButton Content="{x:Static resx:Resources.jobs_header}"
                                      Height="50"
                                      Foreground="White"
                                      FontSize="14"
@@ -172,15 +173,15 @@
                                      Grid.Row="2"
                                      Grid.ColumnSpan="2" />
                         <iconPacks:PackIconBootstrapIcons Kind="ListTask"
-                                                    Height="20"
-                                                    Width="20"
-                                                    Foreground="White"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    Margin="0 0 5 0"
-                                                    Grid.Row="2"
-                                                    Visibility="{Binding NavVisibility}" />
-                        <RadioButton Content="Zeiten"
+                                                          Height="20"
+                                                          Width="20"
+                                                          Foreground="White"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          Margin="0 0 5 0"
+                                                          Grid.Row="2"
+                                                          Visibility="{Binding NavVisibility}" />
+                        <RadioButton Content="{x:Static resx:Resources.times_header}"
                                      Height="50"
                                      Foreground="White"
                                      FontSize="14"
@@ -201,11 +202,11 @@
 
                     <Grid Height="470">
                         <StackPanel VerticalAlignment="Bottom">
-                            <TextBlock Text="{Binding User.LastSaveStr}" 
+                            <TextBlock Text="{Binding User.LastSaveStr}"
                                        Margin="0 0 0 10"
                                        Foreground="Gray"
                                        HorizontalAlignment="Center"
-                                       Visibility="{Binding NavVisibility}"/>
+                                       Visibility="{Binding NavVisibility}" />
                             <Button VerticalAlignment="Bottom"
                                     Height="40"
                                     FontSize="14"
@@ -221,7 +222,8 @@
                                                                       Height="15"
                                                                       Margin="0 0 10 0"
                                                                       Foreground="White" />
-                                    <TextBlock Grid.Column="1">Speichern</TextBlock>
+                                    <TextBlock Grid.Column="1"
+                                               Text="{x:Static resx:Resources.save_button}" />
                                 </Grid>
                             </Button>
                             <Button VerticalAlignment="Bottom"
@@ -240,7 +242,8 @@
                                                                       Margin="0 0 10 0"
                                                                       Foreground="White" />
                                     <TextBlock Grid.Column="1"
-                                               HorizontalAlignment="Left">Wechseln</TextBlock>
+                                               HorizontalAlignment="Left" 
+                                               Text="{x:Static resx:Resources.changeprofile_button}"/>
                                 </Grid>
                             </Button>
                             <Button VerticalAlignment="Bottom"
@@ -254,11 +257,12 @@
                                         <ColumnDefinition Width="70" />
                                     </Grid.ColumnDefinitions>
                                     <iconPacks:PackIconBootstrapIcons Kind="XSquare"
-                                                                Height="15"
-                                                                Margin="0 0 10 0"
-                                                                Foreground="White"/>
+                                                                      Height="15"
+                                                                      Margin="0 0 10 0"
+                                                                      Foreground="White" />
                                     <TextBlock Grid.Column="1"
-                                               HorizontalAlignment="Left">Beenden</TextBlock>
+                                               HorizontalAlignment="Left" 
+                                               Text="{x:Static resx:Resources.quit_button}"/>
                                 </Grid>
                             </Button>
                         </StackPanel>

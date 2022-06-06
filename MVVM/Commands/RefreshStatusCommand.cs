@@ -25,6 +25,7 @@ namespace WorkMate.MVVM.Commands
 
         public override void Execute(object parameter)
         {
+            _jobsViewModel.SelectedStatus = null;
             _jobsViewModel.StatusView.SortDescriptions.Clear();
             _jobsViewModel.StatusView.SortDescriptions.Add(new SortDescription("Date", ListSortDirection.Descending));
             _jobsViewModel.StatusView.Refresh();

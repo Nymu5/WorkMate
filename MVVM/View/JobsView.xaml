@@ -10,7 +10,8 @@
              d:DesignHeight="705"
              d:DesignWidth="980"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:resx="clr-namespace:WorkMate.Properties">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding RefreshJobs}" />
@@ -25,7 +26,7 @@
             <RowDefinition Height="55" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Aufgaben"
+        <TextBlock Text="{x:Static resx:Resources.jobs_header}"
                    FontWeight="Bold"
                    FontSize="28"
                    Foreground="White"
@@ -72,16 +73,17 @@
                                       Grid.Row="1"
                                       VerticalAlignment="Bottom"
                                       Margin="10 0 13 25"
-                                      IsChecked="{Binding SelectedJob.Completed}">Erledigt</CheckBox>
+                                      IsChecked="{Binding SelectedJob.Completed}"
+                                      Content="{x:Static resx:Resources.general_done_description}"/>
                             <Button Style="{StaticResource ModernButton}"
-                                    Content="Aufgabe erledigt"
+                                    Content="{x:Static resx:Resources.jobs_done_button}"
                                     Grid.Column="1"
                                     Grid.Row="3"
                                     Margin="15"
                                     Command="{Binding SetJobCompleted}"
                                     Background="DarkGreen" />
                             <Button Style="{StaticResource ModernButton}"
-                                    Content="Aufgabe löschen"
+                                    Content="{x:Static resx:Resources.jobs_delete_button}"
                                     Background="DarkRed"
                                     Grid.Column="0"
                                     Grid.Row="3"
@@ -105,7 +107,7 @@
                             </StackPanel>
                             <Button Style="{StaticResource ModernButton}"
                                     Grid.Column="1"
-                                    Content="Schließen"
+                                    Content="{x:Static resx:Resources.close_button}"
                                     Width="90"
                                     Height="30"
                                     VerticalAlignment="Top"
@@ -125,7 +127,7 @@
                                         <ColumnDefinition Width="150" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Foreground="LightGray"
-                                               Text="Aufgabe"
+                                               Text="{x:Static resx:Resources.general_job_text}"
                                                Margin="0 10 0 5"
                                                Grid.Column="0"
                                                Grid.Row="0" />
@@ -138,7 +140,7 @@
                                              Padding="2"
                                              Text="{Binding SelectedJob.Name}" />
                                     <TextBlock Foreground="LightGray"
-                                               Text="Fälligkeitsdatum"
+                                               Text="{x:Static resx:Resources.general_due_text}"
                                                Margin="0 10 0 5"
                                                Grid.Column="1"
                                                Grid.Row="0" />
@@ -154,7 +156,7 @@
                                 </Grid>
 
                                 <TextBlock Foreground="LightGray"
-                                           Text="Beschreibung"
+                                           Text="{x:Static resx:Resources.general_description_text}"
                                            Margin="0 0 0 5" />
                                 <TextBox Text="{Binding SelectedJob.Description, UpdateSourceTrigger=PropertyChanged}"
                                          Height="100"
@@ -168,17 +170,13 @@
                                         Grid.Row="2"
                                         Grid.Column="1">
 
-                                <TextBlock Foreground="LightGray"
-                                           Text="Beschreibung"
-                                           Margin="0 0 0 5"
-                                           Visibility="Collapsed" />
                                 <TextBox Text="{Binding SelectedStatus.Description, UpdateSourceTrigger=PropertyChanged}"
                                          Height="100"
                                          VerticalScrollBarVisibility="Auto"
                                          Padding="2"
                                          TextWrapping="Wrap"
                                          Style="{StaticResource TextboxTheme-Empty-White}"
-                                         Tag="Notizen hinzufügen..." />
+                                         Tag="{x:Static resx:Resources.status_notes_add_text}" />
                                 <DataGrid ItemsSource="{Binding SelectedJob.TimesView}"
                                           SelectedItem="{Binding SelectedTime, UpdateSourceTrigger=PropertyChanged}"
                                           HorizontalAlignment="Left"
@@ -268,22 +266,22 @@
                                         <DataGridTextColumn IsReadOnly="True"
                                                             Width="225"
                                                             Binding="{Binding StartTimeStr}"
-                                                            Header="Start" />
+                                                            Header="{x:Static resx:Resources.jobs_time_start}" />
                                         <DataGridTextColumn IsReadOnly="True"
                                                             Width="*"
                                                             Binding="{Binding EndTimeStr}"
-                                                            Header="Ende" />
+                                                            Header="{x:Static resx:Resources.jobs_time_end}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <Grid Margin="0 5 0 0">
                                     <Button Style="{StaticResource ModernButton}"
-                                            Content="Zeit löschen"
+                                            Content="{x:Static resx:Resources.jobs_time_delete}"
                                             Width="150"
                                             HorizontalAlignment="Left"
                                             Command="{Binding DeleteTimeCommand}" />
                                     <StackPanel HorizontalAlignment="Right"
                                                 Orientation="Horizontal">
-                                        <TextBlock Text="Gesamtzeit: "
+                                        <TextBlock Text="{x:Static resx:Resources.jobs_time_total}"
                                                    Foreground="White"
                                                    FontSize="18"
                                                    Margin="0"
@@ -323,7 +321,7 @@
                                           CanUserSortColumns="False"
                                           BorderThickness="0"
                                           GridLinesVisibility="Horizontal"
-                                          Background="Transparent">
+                                          Background="Transparent" Unloaded="DataGrid_Unloaded" LostFocus="DataGrid_LostFocus" MouseLeave="DataGrid_MouseLeave">
                                     <DataGrid.CellStyle>
                                         <Style TargetType="{x:Type DataGridCell}">
                                             <Setter Property="Height"
@@ -392,7 +390,7 @@
 
                                     </DataGrid.InputBindings>
                                     <DataGrid.Columns>
-                                        <DataGridTemplateColumn Header="Datum"
+                                        <DataGridTemplateColumn Header="{x:Static resx:Resources.general_date_text}"
                                                                 Width="120">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
@@ -411,7 +409,7 @@
                                         </DataGridTemplateColumn>
                                         <DataGridTextColumn IsReadOnly="False"
                                                             Width="*"
-                                                            Header="Status"
+                                                            Header="{x:Static resx:Resources.general_status_text}"
                                                             Binding="{Binding Name}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
@@ -476,7 +474,7 @@
             <Grid>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Aufgaben Liste"
+                        <TextBlock Text="{x:Static resx:Resources.jobs_list}"
                                    Foreground="White"
                                    FontSize="28"
                                    Margin="20,10,0,0"
@@ -487,7 +485,7 @@
                                  HorizontalAlignment="Right"
                                  Margin="20,10,20,0"
                                  Grid.Column="1"
-                                 Tag="Suchen"
+                                 Tag="{x:Static resx:Resources.general_search_text}"
                                  Style="{StaticResource ModernTextBox-Empty}"
                                  Text="{Binding Name_SearchJob, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
@@ -503,12 +501,12 @@
                                   Width="460"
                                   Style="{StaticResource CheckboxTheme}"
                                   Grid.Row="0"
-                                  Content="Nur überfällige Aufgaben anzeigen"
+                                  Content="{x:Static resx:Resources.jobs_list_filter_overdue}"
                                   IsChecked="{Binding IsOverdue}" />
                         <CheckBox Width="460"
                                   Style="{StaticResource CheckboxTheme}"
                                   Grid.Row="1"
-                                  Content="Erledigte Aufgaben anzeigen"
+                                  Content="{x:Static resx:Resources.jobs_list_filter_done}"
                                   IsChecked="{Binding ShowCompleted}" />
 
 
@@ -601,22 +599,22 @@
                                                     Width="24"
                                                     Header=""
                                                     Binding="{Binding Completed}"
-                                                    Visibility="Collapsed"/>
+                                                    Visibility="Visible"/>
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="70"
-                                                Header="Fällig am"
+                                                Header="{x:Static resx:Resources.general_due_text}"
                                                 Binding="{Binding DueDateString}" />
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="130"
-                                                Header="Mandant"
+                                                Header="{x:Static resx:Resources.general_client_text}"
                                                 Binding="{Binding Client.Name}" />
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="*"
-                                                Header="Aufgabe"
+                                                Header="{x:Static resx:Resources.general_job_text}"
                                                 Binding="{Binding Name}" />
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="100"
-                                                Header="Status"
+                                                Header="{x:Static resx:Resources.general_status_text}"
                                                 Binding="{Binding LastStatus}" />
                         </DataGrid.Columns>
                     </DataGrid>
@@ -647,11 +645,11 @@
                     </Border.Clip>
                     <Grid>
                         <StackPanel>
-                            <TextBlock Text="Neue Aufgabe"
+                            <TextBlock Text="{x:Static resx:Resources.jobs_new}"
                                        Foreground="White"
                                        FontSize="28"
                                        Margin="20,10,0,0" />
-                            <TextBlock Text="Mandant"
+                            <TextBlock Text="{x:Static resx:Resources.general_client_text}"
                                        Margin="20 2 20 0"
                                        Foreground="White" />
                             <ComboBox IsTextSearchEnabled="True"
@@ -661,14 +659,14 @@
                                       IsEditable="True"
                                       Margin="20 5 20 0"
                                       SelectedItem="{Binding SelectedClient, UpdateSourceTrigger=PropertyChanged}" />
-                            <TextBlock Text="Aufgabe"
+                            <TextBlock Text="{x:Static resx:Resources.general_job_text}"
                                        Margin="20 10 20 0"
                                        Foreground="White" />
                             <TextBox Margin="20 5 20 0"
                                      MaxLength="50"
                                      Padding="2"
                                      Text="{Binding New_JobName}" />
-                            <TextBlock Text="Beschreibung"
+                            <TextBlock Text="{x:Static resx:Resources.general_description_text}"
                                        Margin="20 10 20 0"
                                        Foreground="White" />
                             <TextBox Margin="20 5 20 0"
@@ -692,7 +690,7 @@
                                 <Button VerticalAlignment="Center"
                                         HorizontalAlignment="Right"
                                         Margin="0,10,20,0"
-                                        Content="Erstellen"
+                                        Content="{x:Static resx:Resources.general_create_text}"
                                         Height="40"
                                         Width="100"
                                         Style="{StaticResource ModernButton}"
@@ -728,7 +726,7 @@
                     </Border.Clip>
                     <Grid>
                         <StackPanel>
-                            <TextBlock Text="Details"
+                            <TextBlock Text="{x:Static resx:Resources.general_details_text}"
                                        Foreground="White"
                                        FontSize="28"
                                        Margin="20,10,0,0" />
@@ -747,7 +745,7 @@
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="Mandant: "
+                                <TextBlock Text="{x:Static resx:Resources.general_client_text}"
                                            Foreground="White"
                                            FontSize="18"
                                            Margin="0"
@@ -761,7 +759,7 @@
                                            MaxWidth="300"
                                            Grid.Column="1"
                                            Grid.Row="0" />
-                                <TextBlock Text="Aufgabe: "
+                                <TextBlock Text="{x:Static resx:Resources.general_job_text}"
                                            Foreground="White"
                                            FontSize="18"
                                            Margin="0"
@@ -775,7 +773,7 @@
                                            MaxWidth="300"
                                            Grid.Column="1"
                                            Grid.Row="1" />
-                                <TextBlock Text="Fällig am: "
+                                <TextBlock Text="{x:Static resx:Resources.general_due_text}"
                                            Foreground="White"
                                            FontSize="18"
                                            Margin="0"
@@ -789,7 +787,7 @@
                                            MaxWidth="300"
                                            Grid.Row="2"
                                            Grid.Column="1" />
-                                <TextBlock Text="Erledigt am: "
+                                <TextBlock Text="{x:Static resx:Resources.general_done_text}"
                                            Foreground="White"
                                            FontSize="18"
                                            Margin="0"

@@ -9,6 +9,7 @@
              mc:Ignorable="d"
              d:DesignHeight="705"
              d:DesignWidth="980"
+             xmlns:resx="clr-namespace:WorkMate.Properties"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -24,7 +25,7 @@
             <RowDefinition Height="55" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Zeiten"
+        <TextBlock Text="{x:Static resx:Resources.times_header}"
                    FontWeight="Bold"
                    FontSize="28"
                    Foreground="White"
@@ -523,15 +524,15 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn  IsReadOnly="True"
                                                  Width="350"
-                                                 Header="Mandant"
+                                                 Header="{x:Static resx:Resources.general_client_text}"
                                                  Binding="{Binding Client.Name}" />
                             <DataGridTextColumn  IsReadOnly="True"
                                                  Width="350"
-                                                 Header="Aufgabe"
+                                                 Header="{x:Static resx:Resources.general_job_text}"
                                                  Binding="{Binding Job.Name}" />
                             <DataGridTextColumn IsReadOnly="True"
                                                 Width="*"
-                                                Header="Dauer"
+                                                Header="{x:Static resx:Resources.general_duration_text}"
                                                 Binding="{Binding TimeStr}" />
                         </DataGrid.Columns>
                     </DataGrid>

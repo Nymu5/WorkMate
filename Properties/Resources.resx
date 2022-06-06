@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,129 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="changeprofile_button" xml:space="preserve">
+    <value>Wechseln</value>
+  </data>
+  <data name="clients_header" xml:space="preserve">
+    <value>Mandanten</value>
+  </data>
+  <data name="clients_list" xml:space="preserve">
+    <value>Mandanten Liste</value>
+  </data>
+  <data name="clients_modify" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="clients_modify_name" xml:space="preserve">
+    <value>Neuer Name</value>
+  </data>
+  <data name="clients_new" xml:space="preserve">
+    <value>Neu anlegen</value>
+  </data>
+  <data name="clients_new_name" xml:space="preserve">
+    <value>Name des Mandanten</value>
+  </data>
+  <data name="clients_upcoming_jobs" xml:space="preserve">
+    <value>Anstehende Temine</value>
+  </data>
+  <data name="close_button" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="general_client_text" xml:space="preserve">
+    <value>Mandant</value>
+  </data>
+  <data name="general_create_text" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="general_date_text" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="general_delete_button" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="general_description_text" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="general_details_text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="general_done_description" xml:space="preserve">
+    <value>Erledigt</value>
+  </data>
+  <data name="general_done_text" xml:space="preserve">
+    <value>Erledigt am</value>
+  </data>
+  <data name="general_due_text" xml:space="preserve">
+    <value>Fällig am</value>
+  </data>
+  <data name="general_duration_text" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="general_id_text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="general_job_text" xml:space="preserve">
+    <value>Aufgabe</value>
+  </data>
+  <data name="general_modify_button" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="general_name_text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="general_search_text" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="general_status_text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="jobs_delete_button" xml:space="preserve">
+    <value>Aufgabe löschen</value>
+  </data>
+  <data name="jobs_done_button" xml:space="preserve">
+    <value>Aufgabe erledigt</value>
+  </data>
+  <data name="jobs_header" xml:space="preserve">
+    <value>Aufgaben</value>
+  </data>
+  <data name="jobs_list" xml:space="preserve">
+    <value>Aufgaben Liste</value>
+  </data>
+  <data name="jobs_list_filter_done" xml:space="preserve">
+    <value>Erledigte Aufgaben aneigen</value>
+  </data>
+  <data name="jobs_list_filter_overdue" xml:space="preserve">
+    <value>Nur überfällige Aufgaben anzeigen</value>
+  </data>
+  <data name="jobs_new" xml:space="preserve">
+    <value>Neue Aufgabe</value>
+  </data>
+  <data name="jobs_time_delete" xml:space="preserve">
+    <value>Zeit löschen</value>
+  </data>
+  <data name="jobs_time_end" xml:space="preserve">
+    <value>Ende</value>
+  </data>
+  <data name="jobs_time_start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="jobs_time_total" xml:space="preserve">
+    <value>Gesamtzeit: </value>
+  </data>
+  <data name="quit_button" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="save_button" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="status_notes_add_text" xml:space="preserve">
+    <value>Notizen hinzufügen...</value>
+  </data>
+  <data name="times_header" xml:space="preserve">
+    <value>Zeiten</value>
+  </data>
 </root>

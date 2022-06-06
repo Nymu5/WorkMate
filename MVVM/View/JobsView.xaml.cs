@@ -24,5 +24,21 @@ namespace WorkMate.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void DataGrid_Unloaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var grid = (DataGrid)sender;
+            grid.CommitEdit(DataGridEditingUnit.Row, true);
+        }
     }
 }
